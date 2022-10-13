@@ -1,10 +1,11 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright 2022 Wei Yueyou. All Rights Reserved.
 
 #include "ShortcutKeysToSwitchLanguages.h"
 #include "ISettingsModule.h"
 #include "EditorProperties.h"
 #define LOCTEXT_NAMESPACE "FShortcutKeysToSwitchLanguagesModule"
 
+#if WITH_EDITOR
 void FShortcutKeysToSwitchLanguagesModule::StartupModule()
 {
 	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
@@ -30,7 +31,7 @@ void FShortcutKeysToSwitchLanguagesModule::ShutdownModule()
 		SettingsModule->UnregisterSettings("Project", "Plugins", "MySetting");
 	}
 }
-
+#endif
 #undef LOCTEXT_NAMESPACE
 	
 IMPLEMENT_MODULE(FShortcutKeysToSwitchLanguagesModule, ShortcutKeysToSwitchLanguages)

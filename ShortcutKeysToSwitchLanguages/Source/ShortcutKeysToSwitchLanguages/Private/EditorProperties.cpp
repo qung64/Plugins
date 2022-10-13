@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright 2022 Wei Yueyou. All Rights Reserved.
 
 
 #include "EditorProperties.h"
@@ -6,7 +6,7 @@
 #include "Subsystems/AssetEditorSubsystem.h"
 #include "Kismet2/BlueprintEditorUtils.h"
 
-#if WITH_EDITOR
+
 UEditorProperties::UEditorProperties(const FObjectInitializer& obj)
 {
 
@@ -17,17 +17,21 @@ UEditorProperties::UEditorProperties(const FObjectInitializer& obj)
 	GetLanguage.Add(Portuguese, "pt");
 	GetLanguage.Add(Spanish, "es");
 	GetLanguage.Add(Korean, "ko");
-	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	inputp = MakeShareable(new FInputProcessor(this));
-	FSlateApplication::Get().RegisterInputPreProcessor(inputp);
+	inputp= MakeShareable(new FInputProcessor(this));
+	if (FSlateApplication::IsInitialized())
+	{
+		FSlateApplication::Get().RegisterInputPreProcessor(inputp);
+	}
+
 }
 
 UEditorProperties::~UEditorProperties()
 {
-	if (inputp.Get())
-	{
-		FSlateApplication::Get().UnregisterInputPreProcessor(inputp);
-	}
+	//if (inputp.Get())
+	//{
+	//	FSlateApplication::Get().UnregisterInputPreProcessor(inputp);
+	//	
+	//}
 }
 
 void FInputProcessor::Tick(const float DeltaTime, FSlateApplication& SlateApp, TSharedRef<ICursor> ICursor)
@@ -95,5 +99,4 @@ bool FInputProcessor::HandleMouseMoveEvent(FSlateApplication& SlateApp, const FP
 
 	return false;
 }
-#endif
 

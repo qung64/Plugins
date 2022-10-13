@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright 2022 Wei Yueyou. All Rights Reserved.
 
 using UnrealBuildTool;
 
@@ -7,6 +7,7 @@ public class ShortcutKeysToSwitchLanguages : ModuleRules
 	public ShortcutKeysToSwitchLanguages(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
+		
 		
 		PublicIncludePaths.AddRange(
 			new string[] {
