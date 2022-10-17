@@ -54,9 +54,9 @@ public:
 
 
 	TArray<UObject*>EditedAssets;
-
+	
 	void GetOpenTheBlueprint();
-
+	
 	TSharedPtr<FInputProcessor> inputp;
 
 	UPROPERTY(Config, EditAnywhere, Category = Settings)

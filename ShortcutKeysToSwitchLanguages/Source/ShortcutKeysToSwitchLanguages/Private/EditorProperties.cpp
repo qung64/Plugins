@@ -17,7 +17,9 @@ UEditorProperties::UEditorProperties(const FObjectInitializer& obj)
 	GetLanguage.Add(Portuguese, "pt");
 	GetLanguage.Add(Spanish, "es");
 	GetLanguage.Add(Korean, "ko");
+
 	inputp= MakeShareable(new FInputProcessor(this));
+
 	if (FSlateApplication::IsInitialized())
 	{
 		FSlateApplication::Get().RegisterInputPreProcessor(inputp);
